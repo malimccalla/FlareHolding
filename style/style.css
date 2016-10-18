@@ -1,0 +1,32 @@
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 70px;
+  background-color: #f64224;
+  overflow: visible
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  height: 88vh;
+  float: left;
+  margin-top: 10px;
+  margin-left: 240px
+}
+
+form {
+  float: right;
+  display: block;
+  margin: 0;
+  width: 300px;
+  padding: 20px;
+  margin-right: 300px;
+  margin-top: 500px;
+  font-family: sans-serif;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+}
