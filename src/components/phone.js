@@ -2,8 +2,8 @@ import React from 'react';
 
 const Phone = () => {
   return (
-    <div className="phone">
-      <img src="../../assets/images/phone2.png" alt="phone" />
+    <div className="col-lg-6">
+      <img className="phone" src="../../assets/images/phones.png" alt="phone" />
     </div>
   );
 };

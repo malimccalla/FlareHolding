@@ -33,16 +33,27 @@ export default class InviteForm extends Component {
 
   render() {
     return (
-      <div>
-        <form className="ui action input" onSubmit={this.sendEmailToFireBase.bind(this)}>
-          <input
-            placeholder="testy@mctest.face"
-            onChange={this.handleInputChange.bind(this)}
-            type="text"
-            value={this.state.email}
-          />
-          <button className="ui button" type="submit">Invite me!</button>
-        </form>
+      <div className="right-content">
+        <div>
+          <img className="logo" src="../../assets/images/webLogo.png" alt="logo" />
+        </div>
+        <div className="caption">
+          <p>Share spontaneous moments based <br />on where you are</p>
+        </div>
+        <div className="col-lg-6 foorm">
+          <form className="input-group" onSubmit={this.sendEmailToFireBase.bind(this)}>
+            <input
+              className="form-control"
+              placeholder="Enter your email to join the beta"
+              onChange={this.handleInputChange.bind(this)}
+              type="text"
+              value={this.state.email}
+            />
+            <span className="input-group-btn">
+              <button className="btn btn-primary" type="submit">Invite me!</button>
+            </span>
+          </form>
+        </div>
       </div>
     );
   }
