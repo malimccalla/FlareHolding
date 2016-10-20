@@ -16,22 +16,26 @@ const emailInvites = ref.child('email invites');
 
 export default class InviteForm extends Component {
   state = {
-    email: ''
+    email: '',
+    buttonText: 'Invite me!'
   }
 
   handleInputChange(event) {
     this.setState({ email: event.target.value });
   }
 
-  sendEmailToFireBase(event) {
+  validateEmail(event) {
     event.preventDefault();
-    const email = this.state.email;
-    console.log(email);
-    emailInvites.push({ email });
-    this.setState({ email: '' });
+    if ( /(.+)@(.+){2,}\.(.+){2,}/.test(this.state.email) ){
+      emailInvites.push({ email: this.state.email });
+      this.setState({ email: ''});
+    } else {
+      console.log('invalid email');
+    }
   }
 
   render() {
+    this.error = "Please enter a valid email";
     return (
       <div className="right-content">
         <div>
@@ -41,7 +45,7 @@ export default class InviteForm extends Component {
           <p>Share spontaneous moments based <br />on where you are</p>
         </div>
         <div className="col-lg-6 foorm">
-          <form className="input-group" onSubmit={this.sendEmailToFireBase.bind(this)}>
+          <form className="input-group" onSubmit={this.validateEmail.bind(this)}>
             <input
               className="form-control"
               placeholder="Enter your email to join the beta"
@@ -50,10 +54,11 @@ export default class InviteForm extends Component {
               value={this.state.email}
             />
             <span className="input-group-btn">
-              <button className="btn btn-primary" type="submit">Invite me!</button>
+              <button className="btn btn-primary" type="submit">{this.state.buttonText}</button>
             </span>
           </form>
         </div>
+        {this.message}
       </div>
     );
   }
